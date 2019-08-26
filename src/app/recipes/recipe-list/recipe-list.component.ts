@@ -8,6 +8,7 @@ import { Recipe } from '../recipe.model';
 })
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [
+    new Recipe('A Test Recipe', 'Description', 'https://upload.wikimedia.org/wikipedia/commons/3/39/Recipe.jpg'),
     new Recipe('A Test Recipe', 'Description', 'https://upload.wikimedia.org/wikipedia/commons/3/39/Recipe.jpg') 
   ];
 
