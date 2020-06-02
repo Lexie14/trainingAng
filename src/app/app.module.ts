@@ -13,7 +13,7 @@ import { shoppingListReducer } from "./shopping-list/store/shopping-list.reducer
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     StoreModule.forRoot({ shoppingList: shoppingListReducer }),
     AppRoutingModule,
     HttpClientModule,
