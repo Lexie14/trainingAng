@@ -8,13 +8,13 @@ import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
 import { SharedModule } from "./shared/shared.module";
 import { CoreModule } from "./core.module";
-import { shoppingListReducer } from "./shopping-list/store/shopping-list.reducer";
+import * as fromApp from "./store/app.reducer";
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    StoreModule.forRoot({ shoppingList: shoppingListReducer }),
+    BrowserModule.withServerTransition({ appId: "serverApp" }),
+    StoreModule.forRoot(fromApp.appReducer),
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
