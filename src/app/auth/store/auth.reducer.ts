@@ -18,6 +18,13 @@ export function authReducer(
   action: AuthActions.AuthActions
 ) {
   switch (action.type) {
+    case AuthActions.SIGNUP_START:
+    case AuthActions.LOGIN_START:
+      return {
+        ...state,
+        authError: null,
+        loading: true
+      };
     case AuthActions.AUTHENTICATE_SUCCESS:
       const user = new User(
         action.payload.email,
@@ -31,14 +38,6 @@ export function authReducer(
         user: user,
         loading: false
       };
-    case AuthActions.LOGOUT:
-      return { ...state, user: null };
-    case AuthActions.LOGIN_START:
-      return {
-        ...state,
-        authError: null,
-        loading: true
-      };
     case AuthActions.AUTHENTICATE_FAIL:
       return {
         ...state,
@@ -46,6 +45,13 @@ export function authReducer(
         authError: action.payload,
         loading: false
       };
+    case AuthActions.CLEAR_ERROR:
+      return {
+        ...state,
+        authError: null
+      };
+    case AuthActions.LOGOUT:
+      return { ...state, user: null };
     default:
       return state;
   }
